@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn about Event Listners in JavaScript</title>
+    <style>
+        body{
+            background-color: grey;
+        }
+    </style>
+</head>
+<body>
+    <div class="block">
+        <h1>this is heading</h1>
+        <p id="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit ipsa quam exercitationem omnis id totam eos doloribus. Dignissimos voluptatem, sint enim explicabo porro impedit minus corporis, ipsum praesentium, cumque at! Praesentium, quasi? Ipsam commodi impedit porro sunt aut officiis perferendis consequuntur? Voluptatibus sequi corporis repellat.</p>
+    </div>
+
+    <!-- Way-1 of attaching onclick Event Listner. -->
+    <button onclick="console.log('I am Clicked.')">Click-ME</button>
+
+    <!-- Way-2 of attaching onclick Event Listner. -->
+    <button onclick="handleAboutMe()">About-ME</button>
+
+    <!-- Way-3 of attaching onclick Event Listner. -->
+    <button id= "shareMe-btn">Share-ME</button>
+
+    <!-- Way-4 of attaching onclick Event Listner. The most preferred way. -->
+    <button id="contactMe">Contact-ME</button>
+
+    <!-- --------------------------------------------------------------------------- -->
+    <button id="toggle">Toggle-Color</button>
+
+
+    <script>
+
+        function handleAboutMe(){
+            console.log("I am a CS Grad.")
+            alert("This alert is for About-ME.")
+        }
+
+        const btn = document.getElementById("shareMe-btn")
+        btn.onclick = () => {console.log("I am way-3 of onclick Event Listner.")}
+
+        const contact = document.getElementById("contactMe")
+
+        contact.addEventListener("click", () => {console.log("Call me at 9781639191.")})
+
+        function doSomething(){
+            console.log("This is going to be a callback function")
+        }
+        contact.addEventListener("click", doSomething)
+
+        const element = document.getElementById("para")
+        const toggle_btn= document.getElementById("toggle")
+        
+        toggle_btn.addEventListener("click", () => {
+            if (element.style.color == "red"){
+                element.style.color= "yellow"
+            }
+            else{
+                element.style.color="red"
+            }
+
+        })
+
+
+        // console.log(document)
+        const allchildrens = document.querySelector("body").children
+        console.log(allchildrens)
+
+
+        // for(let i=0; i<allchildrens.length; i++){
+        // // console.log(allchildrens)
+        // allchildrens.item(i).addEventListener("click", () => {
+        //     allchildrens.item(i).remove()
+        // })
+        // }
+      
+        
+
+    </script>
+</body>
+</html>

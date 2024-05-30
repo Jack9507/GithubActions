@@ -1,0 +1,12 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: rgb(178, 141, 96);
+    color: rgb(39, 79, 66);
+}
+#time{
+    color: rgb(155, 40, 40);
+}

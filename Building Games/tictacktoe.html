@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tack Toe</title>
+    <style>
+        body{
+            background-color: grey;
+        }
+        .row{
+            display: flex;
+            margin: 1px
+        }
+        
+        .col{
+            height: 60px;
+            width: 60px;
+            border: 2px solid black;
+            margin: 1px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 30px;
+        }
+        
+    </style>
+
+</head>
+<body>
+    <h1>Play Tick-Tack-Toe</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col" id="cell0"></div>
+            <div class="col" id="cell1"></div>
+            <div class="col" id="cell2"></div>
+        </div> 
+        <div class="row">
+            <div class="col" id="cell3"></div>
+            <div class="col" id="cell4"></div>
+            <div class="col" id="cell5"></div>
+        </div> 
+        <div class="row">
+            <div class="col" id="cell6"></div>
+            <div class="col" id="cell7"></div>
+            <div class="col" id="cell8"></div>
+        </div>
+    </div>
+
+    <script src="tack_tack_toe_script.js"></script>
+</body>
+</html>

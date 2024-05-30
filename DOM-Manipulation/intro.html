@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM - Manipulation</title>
+    <style>
+        body{
+            background-color: rgb(63, 48, 30);
+            color: rgb(168, 221, 23);
+        }
+    </style>
+</head>
+<body>
+    <h2>DOM - Document Object Model</h2>
+    <h3>DOM refers to the entire document like a web page made with different objects</h3>
+
+    <script>
+        // alert("Hey welcome to class of DOM")
+        let age= prompt("please enter your age")
+        console.log("Your age is: "+age)
+
+
+        // Window Object--  our browser is termed as a window
+        // all the interactions with browser is done with the help of window object
+        // alert("hey") is actually -> window.alert("hey")
+        console.log(window)
+
+        // Document object  -> its also present in window object
+        console.log(document)
+        console.log(document.title)
+
+        document.title = "Updated Title now..."
+        console.log(document.title)
+
+
+        let name = prompt("Enter your name..")
+        document.write("Hey, "+name+" you are "+age+" years old.")
+    </script>
+    
+</body>
+</html>

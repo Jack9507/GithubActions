@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Querry Selectors in JS</title>
+    <style>
+        body{
+            background-color: rgb(67, 128, 128);
+        }
+        .red-color{
+            color: red;
+        }
+        .underline{
+            text-decoration: underline;
+        }
+        .tobe-removed{
+            font-size: 50px;
+        }
+    </style>
+    
+</head>
+<body>
+    <nav class="navbar">
+        <p>Welcome to the web page...</p>
+    </nav>
+
+    <div class="block">
+        <h4>This is H4. I am <span id="user" class="tobe-removed">Jerry</span></heading></h4>
+        <p>This is a paragraph.</p>
+        <pre><code>console.log("Hey, how did you even come here.")</code></pre>
+    </div>
+
+    <div class="block">
+        <h2>this block is for testing</h2>
+    </div>
+    <div class="block-2">
+        <p>this is another div from block2.</p>
+    </div>
+
+    <div class="remove">
+        <h1>This code is about to be removed...</h1>
+        <h2>using JavaScript</h2>
+    </div>
+
+    <script>
+    // learning about querry selectors in JS
+    // querrySelector  ->  selects first element in DOM
+    // querrySelectorALL -> used to select all elements
+    /*
+        slecltors in JS:
+            by tag name
+            by ID -> #
+            by class -> .
+    */
+    
+    // const body= document.querySelector("body")
+    // console.log(body)
+    // // body.innerHTML="!!!! Hacked   !!!"
+    // console.log(typeof(body.innerHTML))
+    // // console.log(body.innerHTML)
+
+    // const divtag =document.querySelector("div.block-2")
+    // divtag.innerHTML= "This div is Hacked now."
+
+    // // id selector
+    // const user = document.querySelector("#user")
+    // console.log(user)
+    // user.innerHTML= "Colsen Baker"
+    // user.innerText= "Marshal Mathers"
+
+    // // class selector
+    // const block =  document.querySelectorAll(".block")
+    // console.log(block)
+    // block.forEach( (x) => {console.log(x.innerHTML)})
+    // // block.innerHTML= "<h2>This block is now updated</h2>"
+
+    // const name = document.getElementById("user")
+    // console.log(name)
+    // console.log(name.innerText)
+    // name.classList.add("red-color", "underline")
+    // name.classList.remove("tobe-removed")
+    // name.style.color="orange"
+    // name.parentElement.style.background="grey"
+
+
+
+    const elements = document.getElementsByClassName("block")
+    console.log(elements)
+    for(let i=0; i<elements.length; i++)
+    {
+        console.log(elements.item(i))
+        elements.item(i).style.background="grey"
+    }
+
+    const ele = document.getElementsByClassName("remove")
+    console.log(ele)
+    console.log(ele.length)
+    for(let i=0; i< ele.length; i++)
+    {
+        console.log(ele.item(i))
+        ele.item(i).remove()
+    }
+    console.log(ele.length)
+
+
+
+    // NOTES:  document.getElementById() returns just one element but document.getElementsByClassName() returns a HTML collection of elements so inorder to do DOM manipulation on elements returned by document.getElementsByClassName you have to first iterate over the collection and then apply the DOM manipulation on individual items.
+
+    </script>
+</body>
+</html>
