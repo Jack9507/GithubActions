@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI for my JavaScript code
+name: This is Basic boiler plate code
 
 # Controls when the workflow will run
 on:
