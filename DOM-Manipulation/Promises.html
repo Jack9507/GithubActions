@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promises in js</title>
+    <style>
+        body {
+            background-color: rgb(85, 84, 84);
+        }
+    </style>
+</head>
+
+<body>
+    <p>Synchronous VS Asynchronous task in JS</p>
+    <h2>Synchronous Task</h2>
+    <p>Task that are executed line by line and finally gives result, for example adding 2 numbers</p>
+
+    <h2>Asynchronous Task</h2>
+    <p>Task that may take time to execute. Asynchronous task always return Promises. In case of Asynchronous task the
+        execution does not waits for the result and moves forward to next line. To make execution wait "await" keyword
+        is used in async functions.</p>
+        <p>Asynchronous functions:
+            Functions that take some time to complete, such as reading a file or making a network request, often return promises. This allows the caller to wait for the function to finish before proceeding.</p>
+    <h2>About Promises in JS</h2>
+    <p>A JavaScript Promise is an object that represents the eventual completion or failure of an asynchronous
+        operation. Promises are a way to handle asynchronous code in a more manageable and readable way.
+        Promises can be in one of three states:
+    <pre>
+        Pending: The promise is still waiting for the asynchronous operation  to complete.
+        Fulfilled: The asynchronous operation completed successfully, and the promise has a value.
+        Rejected: The asynchronous operation failed, and the promise has an error
+    </pre>
+
+    </p>
+
+    <script>
+
+        // first giving synchronous task example
+        let a = 5
+        let b = 10
+
+        const res = a + b
+        // console.log(res)
+
+        // now giving asynchronous task example
+        // async function serverData() {
+        //     const datafromServer = fetch('https://jsonplaceholder.typicode.com/todos/1')
+        //     console.log(datafromServer)
+        // }
+
+        async function setname() {
+            await setTimeout(() => { console.log("after 3 secs delay") }, 3000);
+            // let timer = 1
+            // setInterval(() => {
+            //     console.log(timer++)
+            // }, 1000 )
+            console.log("jerry")
+        }
+
+        // serverData()
+
+        // setname()
+        // console.log(a * b)
+
+        // creating promises
+        async function fun1(){
+        let prom1 = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                console.log("hey")
+            }, 2000);
+        });
+        return  prom1
+    }
+
+    fun1()
+    console.log(a+b)
+
+    </script>
+</body>
+
+</html>

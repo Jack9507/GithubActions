@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adding HTML elements dynamically to our DOM through js</title>
+    <style>
+        body{
+            background-color: rgb(95, 92, 87);
+        }
+    </style>
+</head>
+<body>
+    <h1>Adding Dynamic Elements to DOM</h1>
+
+    <div id="container"></div>
+
+    <button id="add-btn">Add Name</button>
+
+    <div id="count"></div>
+    <button id="add-count-btn">Add-Count</button>
+
+
+    <script>
+        const mycont = document.getElementById('container')
+        const mybtn = document.getElementById("add-btn")
+        mybtn.addEventListener('click',  () => {
+            console.log("adding name")
+            const myele = document.createElement("h2")
+            myele.innerText =  "Jerry Lame"
+            mycont.appendChild(myele)
+  
+        })
+
+
+        const mycount = document.getElementById("count")
+        const countbtn = document.getElementById("add-count-btn")
+        let count =1
+        countbtn.addEventListener('click', () => {
+            const lst = document.createElement("li")
+            lst.innerText=count
+            count++
+            countbtn.appendChild(lst)
+        })
+    
+
+
+    </script>
+</body>
+</html>
