@@ -15,6 +15,11 @@ app.get("/", (req, res) => {
 app.get("/game", (req, res) => {
     res.sendFile(path.join(__dirname, "ChoiceGame.html"))
 })
+
+app.get("/health", (req, res) => {
+    res.send("Server is Up and Running, its Healty...")
+})
+
 app.listen(PORT, () => {
     console.log(`Server running on PORT: ${PORT}`)
 })
