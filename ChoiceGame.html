@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Decision Picker</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#0f172a,#1e293b,#020617);
+color:white;
+}
+
+/* Outer Frame */
+
+.app-frame{
+
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(15px);
+
+border-radius:25px;
+
+padding:40px;
+
+width:520px;
+
+box-shadow:
+0 25px 60px rgba(0,0,0,0.6),
+inset 0 1px 1px rgba(255,255,255,0.1);
+
+border:1px solid rgba(255,255,255,0.15);
+
+transform:perspective(1200px) rotateX(5deg);
+}
+
+h1{
+text-align:center;
+margin-bottom:35px;
+font-weight:600;
+letter-spacing:1px;
+}
+
+/* Button Layout */
+
+.buttons{
+display:flex;
+gap:25px;
+justify-content:center;
+}
+
+/* Button Card */
+
+.choice-card{
+
+background:linear-gradient(145deg,#1e293b,#020617);
+
+border-radius:16px;
+
+padding:20px;
+
+flex:1;
+
+box-shadow:
+6px 6px 15px rgba(0,0,0,0.6),
+-3px -3px 10px rgba(255,255,255,0.05);
+
+text-align:center;
+
+transition:transform .2s;
+}
+
+.choice-card:hover{
+transform:translateY(-4px);
+}
+
+/* Buttons */
+
+.choice-btn{
+
+width:100%;
+
+border:none;
+
+border-radius:12px;
+
+padding:18px;
+
+font-size:18px;
+
+font-weight:600;
+
+cursor:pointer;
+
+background:linear-gradient(145deg,#3b82f6,#1d4ed8);
+
+color:white;
+
+box-shadow:
+0 8px 20px rgba(0,0,0,0.6),
+inset 0 2px 3px rgba(255,255,255,0.2);
+
+transition:all .15s ease;
+}
+
+.choice-btn:hover{
+
+box-shadow:
+0 0 12px #3b82f6,
+0 0 22px #2563eb;
+
+transform:translateY(-2px);
+}
+
+.choice-btn:active{
+
+transform:translateY(2px);
+
+box-shadow:
+inset 3px 3px 10px rgba(0,0,0,0.7);
+}
+
+/* Counter */
+
+.counter{
+
+margin-top:12px;
+
+font-size:14px;
+
+opacity:.9;
+
+letter-spacing:.5px;
+}
+
+/* Reset Button */
+
+.reset{
+
+margin-top:35px;
+
+display:block;
+
+margin-left:auto;
+margin-right:auto;
+
+padding:10px 22px;
+
+border-radius:10px;
+
+border:1px solid rgba(255,255,255,0.2);
+
+background:transparent;
+
+color:#e5e7eb;
+
+cursor:pointer;
+
+transition:.2s;
+}
+
+.reset:hover{
+
+background:rgba(255,255,255,0.08);
+
+box-shadow:0 0 10px rgba(255,255,255,0.2);
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="app-frame">
+
+<h1>Choose One</h1>
+
+<div class="buttons">
+
+<div class="choice-card">
+
+<button id="btn1" class="choice-btn"></button>
+
+<div class="counter">Pressed: <span id="count1">0</span></div>
+
+</div>
+
+<div class="choice-card">
+
+<button id="btn2" class="choice-btn"></button>
+
+<div class="counter">Pressed: <span id="count2">0</span></div>
+
+</div>
+
+</div>
+
+<button class="reset" id="resetBtn">Reset Counters</button>
+
+</div>
+
+<script>
+
+const options=[
+"Pizza","Burger","Pasta","Sushi","Tacos",
+"Go Outside","Watch Netflix","Read Book",
+"Workout","Sleep","Travel","Play Game",
+"Coffee","Tea","Juice","Coding","Gaming"
+];
+
+function randomChoice(exclude){
+
+let choice;
+
+do{
+choice=options[Math.floor(Math.random()*options.length)];
+}
+while(choice===exclude);
+
+return choice;
+
+}
+
+function newChoices(){
+
+const c1=randomChoice();
+const c2=randomChoice(c1);
+
+btn1.textContent=c1;
+btn2.textContent=c2;
+
+}
+
+let count1=Number(localStorage.getItem("count1"))||0;
+let count2=Number(localStorage.getItem("count2"))||0;
+
+const btn1=document.getElementById("btn1");
+const btn2=document.getElementById("btn2");
+
+const c1el=document.getElementById("count1");
+const c2el=document.getElementById("count2");
+
+c1el.textContent=count1;
+c2el.textContent=count2;
+
+btn1.onclick=()=>{
+
+count1++;
+
+localStorage.setItem("count1",count1);
+
+c1el.textContent=count1;
+
+newChoices();
+
+}
+
+btn2.onclick=()=>{
+
+count2++;
+
+localStorage.setItem("count2",count2);
+
+c2el.textContent=count2;
+
+newChoices();
+
+}
+
+document.getElementById("resetBtn").onclick=()=>{
+
+count1=0;
+count2=0;
+
+localStorage.clear();
+
+c1el.textContent=0;
+c2el.textContent=0;
+
+}
+
+newChoices();
+
+</script>
+
+</body>
+</html>
