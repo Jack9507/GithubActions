@@ -23,7 +23,7 @@ jobs:
         
         - name: Push Image to Docker Hub
           run: |
-            docker push ${{ secrets.DOCKER.USERNAME }}/githubactions:${{github.run_number}}
+            docker push ${{ secrets.DOCKER_USERNAME }}/githubactions:${{github.run_number}}
 
     
     
