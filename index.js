@@ -17,7 +17,7 @@ app.get("/game", (req, res) => {
 })
 
 app.get("/health", (req, res) => {
-    res.send("Server is Up and Running, its Healty... you are fine")
+    res.send("✅ Server is Up and Running.")
 })
 
 app.listen(PORT, () => {
